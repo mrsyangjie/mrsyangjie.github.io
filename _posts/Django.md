@@ -1,3 +1,13 @@
+---
+layout:     post
+title:      Django Beginner
+subtitle:   
+date:       2018-09-25
+author:     YJ
+catalog: true
+tags:
+    - Markdown
+---
 * [欢迎来到Django笔记页面](#mulu)
 
 

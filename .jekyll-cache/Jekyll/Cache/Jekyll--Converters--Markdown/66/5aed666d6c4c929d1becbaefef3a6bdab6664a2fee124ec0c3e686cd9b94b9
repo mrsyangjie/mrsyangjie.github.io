@@ -1,0 +1,392 @@
+I"�C<ul>
+  <li><a href="#mulu">欢迎来到爬虫笔记页面</a></li>
+</ul>
+
+<!-- /code_chunk_output -->
+<p>&lt;!DOCTYPE html&gt;
+#<center>&lt;h1&gt;爬虫&lt;/h1&gt;</center>
+点击这里还可以去<a href="https://mrsyangjie.github.io/" title="我的博客主页">我的博客主页</a>o 
+点击这里还可以去<a href="https://www.cnblogs.com/zhaof/tag/%E7%88%AC%E8%99%AB/default.html?page=2" title="学习笔记">大神的学习笔记</a>o</p>
+<font face="宋体"> <span id="qianyan"><center>前言</center></span></font>
+<center><p>本页只是为了方便本人以后复习爬虫用的笔记markdown</p></center>
+
+<font color="#1c9999">纯属娱乐，如有雷同，打死不认*——*</font>
+
+<center>
+&lt;img 
+src='http://images2017.cnblogs.com/blog/764024/201802/764024-20180205162555654-1350503259.jpg'
+width=500  / &gt;
+</center>
+
+<hr />
+
+<ol>
+  <li><a href="#1">什么是网络爬虫与爬虫实现原理</a></li>
+  <li><a href="#2">Urllib简单的爬取网页</a></li>
+  <li><a href="#3">编码问题</a></li>
+  <li><a href="#4">requests库</a></li>
+  <li><a href="#5">正则表达式和BeautifulSoup</a></li>
+  <li><a href="#6">selenium</a></li>
+  <li><a href="#7">cookie</a></li>
+  <li><a href="#8">mongoDB</a></li>
+  <li><a href="#9">py生成exe</a></li>
+  <li><a href="#10">自己的案列</a>
+    <hr />
+  </li>
+</ol>
+<font face="宋体"> <span id="1" color="#456526"><center>什么是网络爬虫与爬虫实现原理</center></span></font>
+<ul>
+  <li>网络爬虫由 控制节点，爬虫节点，资源库构成，而在写爬虫中一定注意元组（）与列表的区别[]，字典{}和集合{}的区别
+爬虫的流程
+手动操作
+分析页面数据
+1查看源代码
+2查看是否是 a jax异步加载
+3解密 （非常熟悉前端，特别是js）
+decode  解码 把其他编码转化为unicode decode(‘utf8’)把utf-8转化为unicode
+encode  编码  把unicod转化为其他编码  encode(‘gbk’) 把unicode转化为gbk
+可以这样理解unicode为中文 gbk为日文  utf-8为英文
+转码只能转中文 所以就是   日文转英文 =就是 日转中转英  unicode就是像中间人
+所以gbk怎样转为utf-8 ： decode(‘gbk’).encode(‘utf8’)
+在这给自己补充下，我现在是主要用pycharm和vscode和jupytur notebook写python
+pycharm的话，操作简单，写起来方便快捷，但是注意虚拟环境，这个可以参考Django.md，而且在pip时简单，如果错误就是原因是连接超时，所以需要自己设定安装源，
+解决方法：
+在 pip命令后自己设定收集源（-i +url）
+eg：pip install requests -i http://pypi.douban.com/simple –trusted-host pypi.douban.com（通过豆瓣）就ok了
+由于自己手残。把虚拟删除了，所以重新virtualenv pachong_env还要在pycharm里面选择已经存在的虚拟和解释器，选择是已经存在的，不然重新的又要pycharm自己主动创建一个虚拟环境</li>
+</ul>
+
+<p>vscode的话轻便，需要创建一个文件夹，比如我的就是D:\新建文件夹，为什么在这个文件夹里面能写python因为已经在vscode里设置了详情自己百度，而且里面有一个D:\新建文件夹.vscode\setting.josn，这就是关键
+jupytur notebook 直接打开annocod但是也可以直接打开笔记本通过浏览器127.0.0.1:8888也可以</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>元组是一种序列类型，可以索引，而且可以用，和（）定义，当时元组是不可变的列表是可变的
+列表是一种常见的数据结构，与元组相比，列表是可变的，len可以获得列表的长度，列表支持索引和切片，还可以append在末尾追加新的元素和extend在末尾追加新的序列（如元组或列表）方法，还支持pop,insert,remove,
+字典是一种常用的数据结构，字典所以不同，使用（key）键进行索引，与键对应的值是值(value)，keys就是键和值，字典就是由若干键值对构成，并且键值都有引号，冒号分开
+header={'host':www.adad .com'}
+集合的特点是无序而且无重复元素，可以使用set()和大括号{}来初始化集合
+s=set(['a','b'])
+s={'a','b'}
+enumerate是一种操作函数可以返回列表元组的索引和值
+for ind ,val in enumerate([10,20,40])
+print(ind,val)
+...
+0 10
+1 20
+2 40
+...
+在很长的代码中很有可能出问题，所以有异常处理机制
+try:
+    print('to do')
+    a = 10/0
+    print(a)
+except Exception as e:
+    print(e)
+finally:
+    print('我都执行')
+    执行的结果为
+    ---
+to do
+division by zero
+我都执行
+------
+#那怎样主动抛出一个错误
+来接着看：
+class makeErr(ValueError):
+    pass
+
+
+def make_error(a):
+    n = int(a)
+    if n==0:
+        raise makeErr('我是一个错误')
+    return 1/n
+
+
+make_error(0)
+结果为
+    make_error(0)
+  File "D:/Python_code/pachong/pachong1.py", line 18, in make_error
+    raise makeErr('我是一个错误')
+__main__.makeErr: 我是一个错误
+</code></pre></div></div>
+<p>爬虫按照技术和结构分为通用网络爬虫，聚焦网络爬虫，增量式网络爬虫，深层网络爬虫等，实际网络爬虫通常是几种的组合体
+一般都是由url集合，url队列，页面爬取，页面分析，页面数据库，链接过滤，内容评价，链接评价，想办法自动填写表单等</p>
+<ul>
+  <li>我们通过两种经典爬虫为例（通用爬虫和聚焦爬虫为例）分别记录他们的实现原理并且通过他们找到共同点
+    <ol>
+      <li>通用网络爬虫
+1获取初始的url，初始的url地址可以 由用户人为的指定，也可以由用户指定的某个或几个初始的网页决定
+2根据初始的URL爬取页面并获得新的URL，将网页储蓄在原始的数据库中，并且在爬取网页中发现了新的url将已爬取的URL地址存放在一个URL列表中，再去重或者判断爬取的进程
+3爬取新的URL列表里的URL并且有可能再爬取新URL中又再获得URL再加入列表，以此重复
+4满足爬虫系统的停止条件后停止爬取</li>
+      <li>聚焦网络爬虫
+1由于其有目的的爬取，所以对于聚焦爬虫来说必须增加目标的定义和过滤机制还有下一句URL地址的选取等，所以第一步是做好爬取需求的定义和描述
+2获取初始URL
+3根据初始URL爬取并获得新的URL
+4从新的URL过滤掉无用的，对有需要的放入URL列表，再去重和判断爬取的进程
+5从URL列表中，根据搜索算法，确定URL优先级，并确定下一步要爬取的URL地址，在聚焦爬虫中，确定下一步的URL比较重要
+然后又是从下一步的URL读取新的URL，并重复
+6满足停止条件时停止</li>
+    </ol>
+  </li>
+</ul>
+
+<hr />
+<font face="宋体"> <span id="2" color="#456526"><center>通过Urllib简单的爬取网页</center></span></font>
+
+<hr />
+
+<ul>
+  <li>使用urllib库爬取网页的简单操作
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>在使用urllib前知道，当你获取一个URL你使用一个opener。在一般，我们都是使用的默认的opener，也就是urlopen。它是一个特殊的opener，可以理解成opener的一个特殊实例，传入的参数仅仅是url，data，timeout。
+import urllib.request
+url='http://www.baidu.com'
+print('第一种')
+response1=urllib.request.urlopen(url)
+print (response1.getcode())
+print (len(response1.read()))
+结果为
+第一种
+200
+153295
+</code></pre></div>    </div>
+    <p>urllib思路也是大概一样
+1首先，爬取一个网页并读出来赋给一个变量
+2 以写入的方式打开一个文件，将值写入文件
+3关闭文件</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import urllib.request
+file = urllib.request.urlopen('http://www.baidu.com')
+data=file.read()
+fhandle=open('D:/Python_code/pachong/handle/1.html','wb')
+fhandle.write(data)
+fhandle.close()
+之前一直错因为我写错了
+fhandle=open('D:D:\Python_code\pachong\handle\1.html','wb')
+千万别复制路径，可能我的电脑这只原因，斜杠反的 一直错误
+</code></pre></div>    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>如果要进行编码和解码，比如我们对网址进行编码
+import urllib.request
+file = urllib.request.quote('http://www.baidu.com')
+print(file)
+quote=urllib.request.unquote('http%3A//www.baidu.com')
+print(quote)
+输出为
+D:\Python_code\env_pacong\Scripts\python.exe D:/Python_code/pachong/pachong1.py
+http%3A//www.baidu.com
+http://www.baidu.com
+下面再来看一个典型的我的错误
+import urllib.request
+url = 'http://www.baidu.com'
+file=urllib.request.urlopen('url')
+print(file.text)
+错误一urlopen里面是参数时不用引号
+错误二urlopen里没有text参数只有requests才有，别搞混了，urllib只有通过上面的read()才能读而
+import requests
+url = 'http://www.baidu.com'
+file=requests.get(url)
+print(file.text)
+request这样就可以读
+</code></pre></div>    </div>
+    <p>好了，大概的urllib流程也会了，现在来点不一样的吧
+浏览器的模拟–Heathers属性
+因为一些网站原因不能爬取，这时需要我们模拟网站访问
+第一步打开你想要的网站点进去事件发生，然后检查或者f12找到user-Agent把它复制下来比如bing的就是
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import urllib.request
+url ='http://blog.csdn.net/weiwei_pig/article/details/51178226'
+req=urllib.request.Request(url)
+req.add_header('user-agent','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36')
+data=urllib.request.urlopen(req).read()
+fhandle=open('D:/Python_code/pachong/handle/3.html','wb')
+fhandle.write(data)
+fhandle.close()
+然后打开3.html就有了
+方式二
+import urllib.request
+url='http://blog.csdn.net/weiwei_pig/article/details/51178226'
+headers=('user-agent','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36')
+opener=urllib.request.build_opener()
+opener.addheaders=[headers]
+data=opener.open(url).read()
+fhandle=open('D:/Python_code/pachong/handle/4.html','wb')
+fhandle.write(data)
+fhandle.close()
+一样有了
+</code></pre></div>    </div>
+    <p>-简单的超时设置
+file = urllib.request.urlopen(‘http://yum.iqianyue.com’,timeout=1)</p>
+  </li>
+</ul>
+
+<p>-http协议请求
+1.GET请求
+2.POST请求
+3.PUT请求
+4.DELETE请求
+5.HEAD请求</p>
+<ul>
+  <li>GET请求实例分析
+keyworld = ‘hello’
+url = ‘http://www.baidu.com/s?wd=’ + keyworld
+或者
+kv={‘wd’:’python’}
+r=urllib.request.urlopen(‘http://www.baidu.com/s’,params=kv)
+如果key是中文。编码可能带来问题，则需要解码
+import urllib.request
+url=’http://www.baidu.com/s?wd=’
+key=’阳’
+key_code=urllib.request.quote(key)
+url_all=url+key_code
+req=urllib.request.Request(url_all)
+data=urllib.request.urlopen(req).read()
+print(data)或者可以写入文件也可以</li>
+  <li>POST请求实例
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import urllib.request
+import urllib.parse
+url='http://www.iqianyue.com/mypost/'
+postdata=urllib.parse.urlencode({
+  'name':'yangjie',
+  'pass':'12345'
+}).encode('utf-8')
+req=urllib.request.Request(url,postdata)
+req.add_header('user-agent','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36')
+data=urllib.request.urlopen(req).read()
+fhand=open('D:/Python_code/pachong/handle/5.html','wb')
+fhand.write(data)
+fhand.close()
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <ul>
+      <li>-</li>
+    </ul>
+  </li>
+</ul>
+<font face="宋体"> <span id="3" color="#456526"><center>编码问题</center></span></font>
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>编码问题。
+Python 默认脚本文件都是 ANSCII 编码的，当文件 中有非 ANSCII 编码范围内的字符的时候就要使用”编码指示”来修正一个 module 的定义中，如果.py文件中包含中文字符（严格的说是含有非anscii字符），则需要在第一行或第二行指定编码声明：# -<em>- coding=utf-8 -</em>- 或者 #coding=utf-8
+python bytes和str两种类型转换的函数encode(),decode()
+str通过encode()方法可以编码为指定的bytes
+反过来，如果我们从网络或磁盘上读取了字节流，那么读到的数据就是bytes。要把bytes变为str，就需要用decode()方法：
+是数据用decode不是连接url的response，
+import urllib.request
+file = urllib.request.urlopen(‘http://www.baidu.com’)
+data=file.read()
+print(file.getcode())
+结果为 200
+我居然一开始打算用data.getcode()这个getcode()为状态码,只是用来检查你是否连接成功没有，而data是数据 。。。。。。。。。。。。。。。。
+下面看经典的查看
+import requests
+r=requests.get(‘https://gs.amazon.cn/ref=as_cn_gs_topnav_reg?ld=AZCNAGSTopnav’)
+print(r.status_code)
+回复
+503
+再用
+print(r.encoding)
+回复
+‘ISO-8859-1’
+这时我们再用r.encoding=r.apparent_encoding
+print(r.text)
+就能看到返回提示错误，
+：意外错误等
+这就是网站不让我们爬虫浏览，所以就会有头部的修改</p>
+      <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>来一个错误
+import urllib.request
+file = urllib.request.urlopen('http://www.baidu.com')
+data=file.read()
+print(data)
+结果为 这种错误，空格和换行被打印出了
+b'<span class="cp">&lt;!DOCTYPE html&gt;</span>\n<span class="c">&lt;!--STATUS OK--&gt;</span>\n\r\n\r\n\r\n\r\n\r\n\
+\n\n\n<span class="nt">&lt;html&gt;</span>\n<span class="nt">&lt;head&gt;</span>\n    \n    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"content-type"</span> <span class="na">co</span>
+<span class="err">但是我改了一点之后</span>
+<span class="err">你看</span>
+<span class="na">import</span> <span class="na">urllib</span><span class="err">.</span><span class="na">request</span>
+<span class="na">file = </span><span class="s">urllib.request.urlopen('http://www.baidu.com')</span>
+<span class="na">data=</span><span class="s">file.read()</span>
+<span class="na">print</span><span class="err">(</span><span class="na">data</span><span class="err">.</span><span class="na">decode</span><span class="err">())</span>
+<span class="err">就好了</span> <span class="err">，没有了\</span><span class="na">n</span><span class="err">和\</span><span class="na">r</span><span class="err">,而且格式都整齐了如下</span>
+</code></pre></div>      </div>
+      <p>```</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+   .....
+后来经过百度
+encode和decode分别指编码和解码
+在python中，Unicode类型是作为编码的基础类型，即：
+
+      decode                 encode
+str ---------&gt; str(Unicode) ---------&gt; str
+1
+2
+&gt;&gt;&gt; u = '中文'                 # 指定字符串类型对象u 
+
+&gt;&gt;&gt; str1 = u.encode('gb2312')  # 以gb2312编码对u进行编码，获得bytes类型对象
+&gt;&gt;&gt; print(str1)
+b'\xd6\xd0\xce\xc4'
+
+&gt;&gt;&gt; str2 = u.encode('gbk')     # 以gbk编码对u进行编码，获得bytes类型对象
+&gt;&gt;&gt; print(str2)
+b'\xd6\xd0\xce\xc4'
+&gt;&gt;&gt; str3 = u.encode('utf-8')   # 以utf-8编码对u进行编码，获得bytes类型对象
+&gt;&gt;&gt; print(str3)
+b'\xe4\xb8\xad\xe6\x96\x87'
+
+&gt;&gt;&gt; u1 = str1.decode('gb2312') # 以gb2312编码对字符串str进行解码，获得字符串类型对象
+&gt;&gt;&gt; print('u1')
+'中文'
+
+&gt;&gt;&gt; u2 = str1.decode('utf-8')  # 报错，因为str1是gb2312编码的
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xd6 in position 0: invalid continuation byte
+--------------------- 
+可以看看这个
+建立一个文件test.txt，文件格式用ANSI，内容为:"abc中文",用python来读取
+# coding=gbk
+print open("Test.txt").read()
+结果：abc中文
+
+把文件格式改成UTF-8：
+结果：abc涓 枃
+
+显然，这里需要解码：
+
+# coding=gbk
+import codecs
+print open("Test.txt").read().decode("utf-8")
+结果：abc中文
+还有
+with  open ('beautifulSoup_set.html','r',encoding='utf8') as f:
+encoding为声明文件编码
+ r.encoding=r.apparent_encoding一般这样就可以不用声明了
+```
+再来一个例子吧
+```
+逆水城殇
+python爬虫解决gbk乱码问题
+今天尝试了下爬虫，爬取一本小说，忘语的凡人修仙仙界篇，当然这样不好，大家要支持正版。
+
+　　爬取过程中是老套路，先获取网页源代码　　
+
+复制代码
+# -*- coding:UTF-8 -*-
+from bs4 import BeautifulSoup
+import requests
+
+if __name__ =='__main__':
+    url='http://www.biquge.com.tw/18_18998/8750558.html'
+    page_req=requests.get(url)
+    html=page_req.text
+    bf=BeautifulSoup( html)
+    texts = bf.find_all('div',id='content')
+    print(texts[0].text.replace('\xa0'*8,'\n\n'))
+复制代码
+　　结果：乱码
+</head></html>
+:ET

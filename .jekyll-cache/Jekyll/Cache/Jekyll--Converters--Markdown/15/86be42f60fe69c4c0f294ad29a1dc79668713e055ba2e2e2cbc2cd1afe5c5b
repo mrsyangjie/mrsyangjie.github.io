@@ -1,0 +1,347 @@
+I"G*<!-- MarkdownTOC -->
+
+<ul>
+  <li><a href="#what-is-a-git">What is a git</a></li>
+  <li><a href="#preparation">Preparation</a>
+    <ul>
+      <li><a href="#history">History</a></li>
+      <li><a href="#install">Install</a></li>
+      <li><a href="#configuration">configuration</a></li>
+    </ul>
+  </li>
+  <li><a href="#begin">Begin</a>
+    <ul>
+      <li><a href="#init-the-git">init the git</a></li>
+      <li><a href="#stream">stream</a></li>
+    </ul>
+  </li>
+  <li><a href="#file-operations">File Operations</a>
+    <ul>
+      <li><a href="#add-git-status-to-check">Add (git status to check)</a></li>
+      <li><a href="#removegit-status-to-check">Remove(git status to check)</a></li>
+      <li><a href="#renamegit-status-to-check">Rename(git status to check)</a></li>
+    </ul>
+  </li>
+  <li><a href="#rollback">Rollback</a>
+    <ul>
+      <li><a href="#git-diff-to-check-to-change">git diff to check to change</a></li>
+      <li><a href="#git reset">Warning</a></li>
+      <li><a href="#gitignore">.gitignore</a></li>
+      <li><a href="#gitkeep">.gitkeep</a></li>
+      <li><a href="#other-options">Other options</a></li>
+    </ul>
+  </li>
+  <li><a href="#branch">Branch</a>
+    <ul>
+      <li><a href="#branch-is-needed-cheap-try">branch is needed, cheap, try</a></li>
+      <li><a href="#operations">operations</a></li>
+      <li><a href="#merge">Merge</a></li>
+      <li><a href="#stash">stash</a></li>
+    </ul>
+  </li>
+  <li><a href="#remote-link-to-the-github-or-others">Remote (link to the github or others)</a>
+    <ul>
+      <li><a href="#set-up-a-github-account">Set up a github account</a></li>
+      <li><a href="#password-caching">password caching</a></li>
+    </ul>
+  </li>
+</ul>
+
+<!-- /MarkdownTOC -->
+
+<p><a id="what-is-a-git"></a></p>
+<h2 id="what-is-a-git">What is a git</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> git 帮助我们进行代码的版本控制，我于2015/10/1花费一天时间学习一个关于git的视频,然后再参考几篇博客,将git的使用方法全部弄清楚。let's begin!
+</code></pre></div></div>
+
+<p><a id="preparation"></a>
+##Preparation</p>
+
+<p><a id="history"></a></p>
+<h3 id="history">History</h3>
+<ol>
+  <li>*SCCS Source Code Control System *
+    <ul>
+      <li>1972， closed source, free with Unix</li>
+    </ul>
+  </li>
+  <li>*RCS Revision Control System *
+    <ul>
+      <li>1982， open source.</li>
+    </ul>
+  </li>
+  <li>*CVS Concurrent Versions System *
+    <ul>
+      <li>1986 - 1990, open source</li>
+    </ul>
+  </li>
+  <li>*SVN *
+    <ul>
+      <li>2000, open source</li>
+    </ul>
+  </li>
+  <li><em>BitKeeper SCM</em>
+    <ul>
+      <li>distributed version</li>
+    </ul>
+  </li>
+  <li>*GIT *
+    <ul>
+      <li>github come out
+<a id="install"></a>
+        <h3 id="install">Install</h3>
+        <blockquote>
+          <p>参考官网的安装方法    —— <a href="https://git-scm.com" target="_blank"> [git web]</a></p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li>download the tar.gz or some package[your linux]</li>
+  <li>tar zxvf *.tar.gz</li>
+  <li>/configure</li>
+  <li>make &amp;&amp; make install</li>
+  <li>finish.
+or you can try:
+    <ul>
+      <li>apt-get install git</li>
+      <li>yum install -y git</li>
+      <li>pacman -S git
+<a id="configuration"></a>
+###configuration</li>
+    </ul>
+  </li>
+  <li>git config –global user.name [your name]</li>
+  <li>git config –global user.email [your email]</li>
+  <li>git config –global core.editor “vim”</li>
+  <li>git config –global color.ui true</li>
+  <li>use bash config
+    <ul>
+      <li>wget https://github.com/git/git/raw/master/contrib/completion/git-completion.bash
+       * ls
+       * mv git-completion.bash ~/.git-completion.bash
+       * add to .bashrc that if exist this bash, source it.</li>
+    </ul>
+  </li>
+  <li>help 
+<a id="begin"></a>
+    <h2 id="begin">Begin</h2>
+    <p><a id="init-the-git"></a></p>
+    <h3 id="init-the-git">init the git</h3>
+  </li>
+  <li>mkdir dir1</li>
+  <li>cd dir1</li>
+  <li>git init</li>
+  <li>add one file (make change)</li>
+  <li>git add . (add change)</li>
+  <li>git commit -m “some word” (commit change)</li>
+  <li>git log -n/ –since/ –until/ –grep
+<a id="stream"></a>
+    <h3 id="stream">stream</h3>
+    <p>working -add file- staging index -commit- repositiry</p>
+  </li>
+</ol>
+
+<p><a id="file-operations"></a></p>
+<h2 id="file-operations">File Operations</h2>
+<p><a id="add-git-status-to-check"></a></p>
+<h3 id="add-git-status-to-check">Add (git status to check)</h3>
+<ul>
+  <li>git add .</li>
+  <li>git commit -m “”</li>
+  <li>git diff</li>
+  <li>git commit -ma “”
+<a id="removegit-status-to-check"></a>
+    <h3 id="removegit-status-to-check">Remove(git status to check)</h3>
+  </li>
+  <li>git rm filename</li>
+  <li>git commit -m “”
+<a id="renamegit-status-to-check"></a>
+    <h3 id="renamegit-status-to-check">Rename(git status to check)</h3>
+  </li>
+  <li>git add file</li>
+  <li>git rm file</li>
+  <li>git commit -m “”</li>
+  <li>or you can use git mv file1 file2
+<a id="rollback"></a>
+    <h2 id="rollback">Rollback</h2>
+    <p><a id="git-diff-to-check-to-change"></a></p>
+    <h3 id="git-diff-to-check-to-change">git diff to check to change</h3>
+    <ol>
+      <li>git checkout – file(before add)
+  it can return the status of the workspace.</li>
+      <li>git reset HEAD file (after add)</li>
+    </ol>
+    <ul>
+      <li>unstage the file -&gt; before add</li>
+      <li>git checkout – file
+        <ol>
+          <li>git (after commit)</li>
+        </ol>
+      </li>
+      <li>find the Hash value of commit</li>
+      <li>git comment –amend append to the same commit</li>
+      <li>git diff –staged</li>
+      <li>return the commit status
+        <blockquote>
+          <p>git checkout [commit hash] – file</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><a id="git reset"></a></p>
+<h3 id="warning-git-reset">Warning [git reset]</h3>
+<ol>
+  <li>–soft not change staging index &amp; workspace</li>
+  <li>–mixed(default) change staging &amp; not workspace</li>
+  <li>–hard change staging &amp; change workspace
+    <blockquote>
+      <p>usage : git reset –soft [commit hash]
+git reset HEAD file
+-n try to do -f force to do
+<a id="gitignore"></a></p>
+      <h3 id="gitignore">.gitignore</h3>
+      <p>it can help us to ignore some file or dir
+reference :</p>
+    </blockquote>
+  </li>
+  <li>help.github.com/articles/ignoring-files</li>
+  <li>github.com/github/gitignore
+git config –global core.excludesfile pathtofile
+    <ul>
+      <li>git rm –cached file 
+<a id="gitkeep"></a>
+        <h3 id="gitkeep">.gitkeep</h3>
+        <p>git log –oneline/ –graph/ –all/ –decorate
+<a id="other-options"></a></p>
+        <h3 id="other-options">Other options</h3>
+      </li>
+      <li>git show [hash]</li>
+      <li>git diff [hash] &amp; git diff [hash1]..[hash2]
+<a id="branch"></a>
+        <h2 id="branch">Branch</h2>
+        <p><a id="branch-is-needed-cheap-try"></a></p>
+        <h3 id="branch-is-needed-cheap-try">branch is needed, cheap, try</h3>
+      </li>
+    </ul>
+  </li>
+  <li>try new ideas</li>
+  <li>isolate the workspace</li>
+  <li>fast context switching
+<a id="operations"></a>
+    <h3 id="operations">operations</h3>
+    <blockquote>
+      <ul>
+        <li>git branch</li>
+        <li><strong>create</strong> -&gt; git branch new_branch_name</li>
+        <li><strong>switch</strong> -&gt; git checkout branch_name</li>
+        <li>git checkout -b new_branch_name</li>
+        <li>git diff [branch1]..[branch2] (use –color-words)</li>
+        <li>git branch –merged</li>
+        <li>git branch -m old_name new_name (–move)</li>
+        <li>git barnch -d(–delete) name (-D to delete a non-empty branch)</li>
+        <li>prompt
+          <ol>
+            <li>export PS1=’$(__git_ps1 “(%s)”) &gt; ‘</li>
+            <li>export PS1=’\W$(__git_ps1 “(%s)”) &gt; ‘</li>
+            <li>export PS1=$PS1’$(__git_ps1 “(%s)”) &gt; ‘ (it’s cool !)</li>
+          </ol>
+        </li>
+      </ul>
+    </blockquote>
+  </li>
+</ol>
+
+<p>Attantion: barnch is a stack mode, current branch can’t be delete
+<a id="merge"></a></p>
+<h3 id="merge">Merge</h3>
+<blockquote>
+  <ul>
+    <li>git merge exist_branch</li>
+    <li>git branch –merged</li>
+    <li>conflict
+      <ul>
+        <li>
+          <ol>
+            <li>change by yourselt</li>
+          </ol>
+        </li>
+        <li>
+          <ol>
+            <li>git log –graph –oneline –all –decorate</li>
+          </ol>
+        </li>
+        <li>
+          <ol>
+            <li>git mergetool –tool=</li>
+          </ol>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<p>Attention:</p>
+<ul>
+  <li>keep lines short</li>
+  <li>commits small focused</li>
+  <li>merge often
+<a id="stash"></a>
+    <h3 id="stash">stash</h3>
+    <ol>
+      <li>git stash save “changed mission …”</li>
+      <li>git stash list</li>
+      <li>git stash show stash@{0}  (you may use -p option)</li>
+      <li>git stash apply</li>
+      <li>git stash pop</li>
+      <li>git stash drop stash@{0}
+<a id="remote-link-to-the-github-or-others"></a>
+        <h2 id="remote-link-to-the-github-or-others">Remote (link to the github or others)</h2>
+        <p><img src="http://img.blog.csdn.net/20151001194223393" alt="Remote Git" />
+Easily, this can be changed to
+<img src="http://img.blog.csdn.net/20151001194446158" alt="Remote Git now" />
+<a id="set-up-a-github-account"></a></p>
+        <h3 id="set-up-a-github-account">Set up a github account</h3>
+      </li>
+      <li>you set up a account</li>
+      <li>Create a repository</li>
+      <li>look at the code following
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo #  &gt;&gt; README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/[User account]/[project name].git
+git push -u origin master
+</code></pre></div>        </div>
+      </li>
+    </ol>
+  </li>
+  <li>you can easy use 
+     git remote rm origin</li>
+  <li>git branch -a/-r</li>
+  <li>git push -f</li>
+  <li>git fetch
+    <ul>
+      <li>fetch before work</li>
+      <li>fetch before push</li>
+      <li>fetch often</li>
+    </ul>
+  </li>
+  <li>git pull = git fetch + git merge</li>
+  <li>git push origin :your branch</li>
+  <li>git push origin [–delete] branch
+    <blockquote>
+      <p>[远程分支的使用]
+git checkout -b [new_branch]
+(make some change)
+git commit -am “word”
+git push [远程仓库名] [远程分支名(new_branch)]
+<a id="password-caching"></a></p>
+      <h3 id="password-caching">password caching</h3>
+      <p><a href="https://help.github.com/articles/caching-your-github-password-in-git/">Password Caching</a>
+or save the ssh key.</p>
+    </blockquote>
+  </li>
+</ul>
+:ET

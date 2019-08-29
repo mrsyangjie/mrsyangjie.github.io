@@ -1,0 +1,26 @@
+I"<h1 id="organization">Organization</h1>
+<p>_config.yml ：全局配置文件</p>
+
+<p>posts :放文章的文件夹</p>
+
+<p>img 存放图片的文件夹</p>
+
+<h1 id="settings-mainly-on-_configyml">Settings (mainly on _config.yml)</h1>
+
+<h1 id="sidebar-settings">Sidebar settings</h1>
+<p>sidebar: true</p>
+
+<p>sidebar-about-description:</p>
+
+<p>sidebar-avatar:</p>
+
+<h1 id="reference">Reference</h1>
+
+<p>*<a href="https://www.jianshu.com/p/e68fba58f75c">BY Blogs</a></p>
+
+<p>*<a href="https://blog.csdn.net/xudailong_blog/article/details/78762262">xudailong Blogs</a></p>
+
+<p>*<a href="https://www.jekyll.com.cn/">jekyll</a></p>
+
+<p>*<a href="http://qiubaiying.top/2017/12/19/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0-Gitalk-%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/">gitalk</a></p>
+:ET

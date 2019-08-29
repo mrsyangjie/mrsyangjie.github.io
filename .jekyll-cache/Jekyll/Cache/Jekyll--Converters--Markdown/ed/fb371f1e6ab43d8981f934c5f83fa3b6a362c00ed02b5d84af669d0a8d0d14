@@ -1,68 +1,64 @@
----
-layout:     post
-title:      pachong Beginner
-subtitle:   
-date:       2018-09-25
-author:     YJ
-catalog: true
-tags:
-    - Markdown
----
-* [欢迎来到爬虫笔记页面](#mulu)
+I"��<ul>
+  <li><a href="#mulu">欢迎来到爬虫笔记页面</a></li>
+</ul>
 
 <!-- /code_chunk_output -->
-<!DOCTYPE html>
-#<center><h1>爬虫</h1></center>
-点击这里还可以去[我的博客主页](https://mrsyangjie.github.io/ "我的博客主页")o 
-点击这里还可以去[大神的学习笔记](https://www.cnblogs.com/zhaof/tag/%E7%88%AC%E8%99%AB/default.html?page=2 "学习笔记")o 
-<font face='宋体' > <span id='qianyan'><center>前言</center></span></font>
+<p>&lt;!DOCTYPE html&gt;
+#<center>&lt;h1&gt;爬虫&lt;/h1&gt;</center>
+点击这里还可以去<a href="https://mrsyangjie.github.io/" title="我的博客主页">我的博客主页</a>o 
+点击这里还可以去<a href="https://www.cnblogs.com/zhaof/tag/%E7%88%AC%E8%99%AB/default.html?page=2" title="学习笔记">大神的学习笔记</a>o</p>
+<font face="宋体"> <span id="qianyan"><center>前言</center></span></font>
 <center><p>本页只是为了方便本人以后复习爬虫用的笔记markdown</p></center>
 
 <font color="#1c9999">纯属娱乐，如有雷同，打死不认*——*</font>
 
 <center>
-<img 
+&lt;img 
 src='http://images2017.cnblogs.com/blog/764024/201802/764024-20180205162555654-1350503259.jpg'
-width=500  / >
+width=500  / &gt;
 </center>
 
-- - -
+<hr />
 
-1. [什么是网络爬虫与爬虫实现原理](#1)
-1. [Urllib简单的爬取网页](#2)
-1. [编码问题](#3)
-1. [requests库](#4)
-1. [正则表达式和BeautifulSoup](#5)
-1. [selenium](#6)
-1. [cookie](#7)
-1. [mongoDB](#8)
-1. [py生成exe](#9)
-1. [自己的案列](#10)
-- - - 
-<font face='宋体' > <span id='1' color='#456526'><center>什么是网络爬虫与爬虫实现原理</center></span></font>
-- 网络爬虫由 控制节点，爬虫节点，资源库构成，而在写爬虫中一定注意元组（）与列表的区别[]，字典{}和集合{}的区别
+<ol>
+  <li><a href="#1">什么是网络爬虫与爬虫实现原理</a></li>
+  <li><a href="#2">Urllib简单的爬取网页</a></li>
+  <li><a href="#3">编码问题</a></li>
+  <li><a href="#4">requests库</a></li>
+  <li><a href="#5">正则表达式和BeautifulSoup</a></li>
+  <li><a href="#6">selenium</a></li>
+  <li><a href="#7">cookie</a></li>
+  <li><a href="#8">mongoDB</a></li>
+  <li><a href="#9">py生成exe</a></li>
+  <li><a href="#10">自己的案列</a>
+    <hr />
+  </li>
+</ol>
+<font face="宋体"> <span id="1" color="#456526"><center>什么是网络爬虫与爬虫实现原理</center></span></font>
+<ul>
+  <li>网络爬虫由 控制节点，爬虫节点，资源库构成，而在写爬虫中一定注意元组（）与列表的区别[]，字典{}和集合{}的区别
 爬虫的流程
 手动操作
 分析页面数据
 1查看源代码
 2查看是否是 a jax异步加载
 3解密 （非常熟悉前端，特别是js）
-decode  解码 把其他编码转化为unicode decode('utf8')把utf-8转化为unicode
-encode  编码  把unicod转化为其他编码  encode('gbk') 把unicode转化为gbk
+decode  解码 把其他编码转化为unicode decode(‘utf8’)把utf-8转化为unicode
+encode  编码  把unicod转化为其他编码  encode(‘gbk’) 把unicode转化为gbk
 可以这样理解unicode为中文 gbk为日文  utf-8为英文
 转码只能转中文 所以就是   日文转英文 =就是 日转中转英  unicode就是像中间人
-所以gbk怎样转为utf-8 ： decode('gbk').encode('utf8')
+所以gbk怎样转为utf-8 ： decode(‘gbk’).encode(‘utf8’)
 在这给自己补充下，我现在是主要用pycharm和vscode和jupytur notebook写python
 pycharm的话，操作简单，写起来方便快捷，但是注意虚拟环境，这个可以参考Django.md，而且在pip时简单，如果错误就是原因是连接超时，所以需要自己设定安装源，
 解决方法：
 在 pip命令后自己设定收集源（-i +url）
-eg：pip install requests -i http://pypi.douban.com/simple --trusted-host pypi.douban.com（通过豆瓣）就ok了
-由于自己手残。把虚拟删除了，所以重新virtualenv pachong_env还要在pycharm里面选择已经存在的虚拟和解释器，选择是已经存在的，不然重新的又要pycharm自己主动创建一个虚拟环境
+eg：pip install requests -i http://pypi.douban.com/simple –trusted-host pypi.douban.com（通过豆瓣）就ok了
+由于自己手残。把虚拟删除了，所以重新virtualenv pachong_env还要在pycharm里面选择已经存在的虚拟和解释器，选择是已经存在的，不然重新的又要pycharm自己主动创建一个虚拟环境</li>
+</ul>
 
-vscode的话轻便，需要创建一个文件夹，比如我的就是D:\新建文件夹，为什么在这个文件夹里面能写python因为已经在vscode里设置了详情自己百度，而且里面有一个D:\新建文件夹\.vscode\setting.josn，这就是关键
-jupytur notebook 直接打开annocod但是也可以直接打开笔记本通过浏览器127.0.0.1:8888也可以
-```
-元组是一种序列类型，可以索引，而且可以用，和（）定义，当时元组是不可变的列表是可变的
+<p>vscode的话轻便，需要创建一个文件夹，比如我的就是D:\新建文件夹，为什么在这个文件夹里面能写python因为已经在vscode里设置了详情自己百度，而且里面有一个D:\新建文件夹.vscode\setting.josn，这就是关键
+jupytur notebook 直接打开annocod但是也可以直接打开笔记本通过浏览器127.0.0.1:8888也可以</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>元组是一种序列类型，可以索引，而且可以用，和（）定义，当时元组是不可变的列表是可变的
 列表是一种常见的数据结构，与元组相比，列表是可变的，len可以获得列表的长度，列表支持索引和切片，还可以append在末尾追加新的元素和extend在末尾追加新的序列（如元组或列表）方法，还支持pop,insert,remove,
 字典是一种常用的数据结构，字典所以不同，使用（key）键进行索引，与键对应的值是值(value)，keys就是键和值，字典就是由若干键值对构成，并且键值都有引号，冒号分开
 header={'host':www.adad .com'}
@@ -111,32 +107,37 @@ make_error(0)
   File "D:/Python_code/pachong/pachong1.py", line 18, in make_error
     raise makeErr('我是一个错误')
 __main__.makeErr: 我是一个错误
-```
-爬虫按照技术和结构分为通用网络爬虫，聚焦网络爬虫，增量式网络爬虫，深层网络爬虫等，实际网络爬虫通常是几种的组合体
-一般都是由url集合，url队列，页面爬取，页面分析，页面数据库，链接过滤，内容评价，链接评价，想办法自动填写表单等
-- 我们通过两种经典爬虫为例（通用爬虫和聚焦爬虫为例）分别记录他们的实现原理并且通过他们找到共同点
-1. 通用网络爬虫
+</code></pre></div></div>
+<p>爬虫按照技术和结构分为通用网络爬虫，聚焦网络爬虫，增量式网络爬虫，深层网络爬虫等，实际网络爬虫通常是几种的组合体
+一般都是由url集合，url队列，页面爬取，页面分析，页面数据库，链接过滤，内容评价，链接评价，想办法自动填写表单等</p>
+<ul>
+  <li>我们通过两种经典爬虫为例（通用爬虫和聚焦爬虫为例）分别记录他们的实现原理并且通过他们找到共同点
+    <ol>
+      <li>通用网络爬虫
 1获取初始的url，初始的url地址可以 由用户人为的指定，也可以由用户指定的某个或几个初始的网页决定
 2根据初始的URL爬取页面并获得新的URL，将网页储蓄在原始的数据库中，并且在爬取网页中发现了新的url将已爬取的URL地址存放在一个URL列表中，再去重或者判断爬取的进程
 3爬取新的URL列表里的URL并且有可能再爬取新URL中又再获得URL再加入列表，以此重复
-4满足爬虫系统的停止条件后停止爬取
-1. 聚焦网络爬虫
+4满足爬虫系统的停止条件后停止爬取</li>
+      <li>聚焦网络爬虫
 1由于其有目的的爬取，所以对于聚焦爬虫来说必须增加目标的定义和过滤机制还有下一句URL地址的选取等，所以第一步是做好爬取需求的定义和描述
 2获取初始URL
 3根据初始URL爬取并获得新的URL
 4从新的URL过滤掉无用的，对有需要的放入URL列表，再去重和判断爬取的进程
 5从URL列表中，根据搜索算法，确定URL优先级，并确定下一步要爬取的URL地址，在聚焦爬虫中，确定下一步的URL比较重要
 然后又是从下一步的URL读取新的URL，并重复
-6满足停止条件时停止
+6满足停止条件时停止</li>
+    </ol>
+  </li>
+</ul>
 
-- - -
-<font face='宋体' > <span id='2' color='#456526'><center>通过Urllib简单的爬取网页</center></span></font>
+<hr />
+<font face="宋体"> <span id="2" color="#456526"><center>通过Urllib简单的爬取网页</center></span></font>
 
-- - -
+<hr />
 
-- 使用urllib库爬取网页的简单操作
-```
-在使用urllib前知道，当你获取一个URL你使用一个opener。在一般，我们都是使用的默认的opener，也就是urlopen。它是一个特殊的opener，可以理解成opener的一个特殊实例，传入的参数仅仅是url，data，timeout。
+<ul>
+  <li>使用urllib库爬取网页的简单操作
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>在使用urllib前知道，当你获取一个URL你使用一个opener。在一般，我们都是使用的默认的opener，也就是urlopen。它是一个特殊的opener，可以理解成opener的一个特殊实例，传入的参数仅仅是url，data，timeout。
 import urllib.request
 url='http://www.baidu.com'
 print('第一种')
@@ -147,13 +148,12 @@ print (len(response1.read()))
 第一种
 200
 153295
-```
-urllib思路也是大概一样
+</code></pre></div>    </div>
+    <p>urllib思路也是大概一样
 1首先，爬取一个网页并读出来赋给一个变量
 2 以写入的方式打开一个文件，将值写入文件
-3关闭文件
-```
-import urllib.request
+3关闭文件</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import urllib.request
 file = urllib.request.urlopen('http://www.baidu.com')
 data=file.read()
 fhandle=open('D:/Python_code/pachong/handle/1.html','wb')
@@ -162,9 +162,8 @@ fhandle.close()
 之前一直错因为我写错了
 fhandle=open('D:D:\Python_code\pachong\handle\1.html','wb')
 千万别复制路径，可能我的电脑这只原因，斜杠反的 一直错误
-```
-```
-如果要进行编码和解码，比如我们对网址进行编码
+</code></pre></div>    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>如果要进行编码和解码，比如我们对网址进行编码
 import urllib.request
 file = urllib.request.quote('http://www.baidu.com')
 print(file)
@@ -186,14 +185,13 @@ url = 'http://www.baidu.com'
 file=requests.get(url)
 print(file.text)
 request这样就可以读
-```
-好了，大概的urllib流程也会了，现在来点不一样的吧
-浏览器的模拟--Heathers属性
+</code></pre></div>    </div>
+    <p>好了，大概的urllib流程也会了，现在来点不一样的吧
+浏览器的模拟–Heathers属性
 因为一些网站原因不能爬取，这时需要我们模拟网站访问
 第一步打开你想要的网站点进去事件发生，然后检查或者f12找到user-Agent把它复制下来比如bing的就是
-Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36
-```
-import urllib.request
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import urllib.request
 url ='http://blog.csdn.net/weiwei_pig/article/details/51178226'
 req=urllib.request.Request(url)
 req.add_header('user-agent','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36')
@@ -213,41 +211,44 @@ fhandle=open('D:/Python_code/pachong/handle/4.html','wb')
 fhandle.write(data)
 fhandle.close()
 一样有了
-```
--简单的超时设置
-file = urllib.request.urlopen('http://yum.iqianyue.com',timeout=1)
+</code></pre></div>    </div>
+    <p>-简单的超时设置
+file = urllib.request.urlopen(‘http://yum.iqianyue.com’,timeout=1)</p>
+  </li>
+</ul>
 
--http协议请求
+<p>-http协议请求
 1.GET请求
 2.POST请求
 3.PUT请求
 4.DELETE请求
-5.HEAD请求
-- GET请求实例分析
-```
-keyworld = 'hello'
-url = 'http://www.baidu.com/s?wd=' + keyworld
+5.HEAD请求</p>
+<ul>
+  <li>GET请求实例分析</li>
+</ul>
+
+<p>keyworld = ‘hello’
+url = ‘http://www.baidu.com/s?wd=’ + keyworld
 或者
-kv={'wd':'python'}
-r=urllib.request.urlopen('http://www.baidu.com/s',params=kv)
+kv={‘wd’:’python’}
+r=urllib.request.urlopen(‘http://www.baidu.com/s’,params=kv)
 如果key是中文。编码可能带来问题，则需要解码
 import urllib.request
-url='http://www.baidu.com/s?wd='
-key='阳'
+url=’http://www.baidu.com/s?wd=’
+key=’阳’
 key_code=urllib.request.quote(key)
 url_all=url+key_code
 req=urllib.request.Request(url_all)
 data=urllib.request.urlopen(req).read()
-print(data)或者可以写入文件也可以
-```
-- POST请求实例
-```
-import urllib.request
+print(data)或者可以写入文件也可以</p>
+<ul>
+  <li>POST请求实例
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import urllib.request
 import urllib.parse
 url='http://www.iqianyue.com/mypost/'
 postdata=urllib.parse.urlencode({
-    'name':'yangjie',
-    'pass':'12345'
+  'name':'yangjie',
+  'pass':'12345'
 }).encode('utf-8')
 req=urllib.request.Request(url,postdata)
 req.add_header('user-agent','Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36')
@@ -255,86 +256,97 @@ data=urllib.request.urlopen(req).read()
 fhand=open('D:/Python_code/pachong/handle/5.html','wb')
 fhand.write(data)
 fhand.close()
-```
-- -  -
-<font face='宋体' > <span id='3' color='#456526'><center>编码问题</center></span></font>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <ul>
+      <li>-</li>
+    </ul>
+  </li>
+</ul>
+<font face="宋体"> <span id="3" color="#456526"><center>编码问题</center></span></font>
 
->>>编码问题。
-Python 默认脚本文件都是 ANSCII 编码的，当文件 中有非 ANSCII 编码范围内的字符的时候就要使用"编码指示"来修正一个 module 的定义中，如果.py文件中包含中文字符（严格的说是含有非anscii字符），则需要在第一行或第二行指定编码声明：# -*- coding=utf-8 -*- 或者 #coding=utf-8
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <p>编码问题。
+Python 默认脚本文件都是 ANSCII 编码的，当文件 中有非 ANSCII 编码范围内的字符的时候就要使用”编码指示”来修正一个 module 的定义中，如果.py文件中包含中文字符（严格的说是含有非anscii字符），则需要在第一行或第二行指定编码声明：# -<em>- coding=utf-8 -</em>- 或者 #coding=utf-8
 python bytes和str两种类型转换的函数encode(),decode()
 str通过encode()方法可以编码为指定的bytes
 反过来，如果我们从网络或磁盘上读取了字节流，那么读到的数据就是bytes。要把bytes变为str，就需要用decode()方法：
 是数据用decode不是连接url的response，
 import urllib.request
-file = urllib.request.urlopen('http://www.baidu.com')
+file = urllib.request.urlopen(‘http://www.baidu.com’)
 data=file.read()
 print(file.getcode())
 结果为 200
 我居然一开始打算用data.getcode()这个getcode()为状态码,只是用来检查你是否连接成功没有，而data是数据 。。。。。。。。。。。。。。。。
 下面看经典的查看
 import requests
-r=requests.get('https://gs.amazon.cn/ref=as_cn_gs_topnav_reg?ld=AZCNAGSTopnav')
+r=requests.get(‘https://gs.amazon.cn/ref=as_cn_gs_topnav_reg?ld=AZCNAGSTopnav’)
 print(r.status_code)
 回复
 503
 再用
 print(r.encoding)
 回复
-'ISO-8859-1'
+‘ISO-8859-1’
 这时我们再用r.encoding=r.apparent_encoding
 print(r.text)
 就能看到返回提示错误，
 ：意外错误等
-这就是网站不让我们爬虫浏览，所以就会有头部的修改
-```
-来一个错误
->>>import urllib.request
->>>file = urllib.request.urlopen('http://www.baidu.com')
-data=file.read()
-print(data)
-结果为 这种错误，空格和换行被打印出了
-b'<!DOCTYPE html>\n<!--STATUS OK-->\n\r\n\r\n\r\n\r\n\r\n\
-\n\n\n<html>\n<head>\n    \n    <meta http-equiv="content-type" co
-但是我改了一点之后
-你看
+这就是网站不让我们爬虫浏览，所以就会有头部的修改</p>
+      <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>来一个错误
 import urllib.request
 file = urllib.request.urlopen('http://www.baidu.com')
 data=file.read()
-print(data.decode())
-就好了 ，没有了\n和\r,而且格式都整齐了如下
-```
-```
+print(data)
+结果为 这种错误，空格和换行被打印出了
+b'<span class="cp">&lt;!DOCTYPE html&gt;</span>\n<span class="c">&lt;!--STATUS OK--&gt;</span>\n\r\n\r\n\r\n\r\n\r\n\
+\n\n\n<span class="nt">&lt;html&gt;</span>\n<span class="nt">&lt;head&gt;</span>\n    \n    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"content-type"</span> <span class="na">co</span>
+<span class="err">但是我改了一点之后</span>
+<span class="err">你看</span>
+<span class="na">import</span> <span class="na">urllib</span><span class="err">.</span><span class="na">request</span>
+<span class="na">file = </span><span class="s">urllib.request.urlopen('http://www.baidu.com')</span>
+<span class="na">data=</span><span class="s">file.read()</span>
+<span class="na">print</span><span class="err">(</span><span class="na">data</span><span class="err">.</span><span class="na">decode</span><span class="err">())</span>
+<span class="err">就好了</span> <span class="err">，没有了\</span><span class="na">n</span><span class="err">和\</span><span class="na">r</span><span class="err">,而且格式都整齐了如下</span>
+</code></pre></div>      </div>
+      <p>```</p>
+    </blockquote>
+  </blockquote>
+</blockquote>
 <html>
 <head>
-    <meta http-equiv="content-type" content="text/html;charset=utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
    .....
 后来经过百度
 encode和decode分别指编码和解码
 在python中，Unicode类型是作为编码的基础类型，即：
 
       decode                 encode
-str ---------> str(Unicode) ---------> str
+str ---------&gt; str(Unicode) ---------&gt; str
 1
 2
->>> u = '中文'                 # 指定字符串类型对象u 
+&gt;&gt;&gt; u = '中文'                 # 指定字符串类型对象u 
 
->>> str1 = u.encode('gb2312')  # 以gb2312编码对u进行编码，获得bytes类型对象
->>> print(str1)
+&gt;&gt;&gt; str1 = u.encode('gb2312')  # 以gb2312编码对u进行编码，获得bytes类型对象
+&gt;&gt;&gt; print(str1)
 b'\xd6\xd0\xce\xc4'
 
->>> str2 = u.encode('gbk')     # 以gbk编码对u进行编码，获得bytes类型对象
->>> print(str2)
+&gt;&gt;&gt; str2 = u.encode('gbk')     # 以gbk编码对u进行编码，获得bytes类型对象
+&gt;&gt;&gt; print(str2)
 b'\xd6\xd0\xce\xc4'
->>> str3 = u.encode('utf-8')   # 以utf-8编码对u进行编码，获得bytes类型对象
->>> print(str3)
+&gt;&gt;&gt; str3 = u.encode('utf-8')   # 以utf-8编码对u进行编码，获得bytes类型对象
+&gt;&gt;&gt; print(str3)
 b'\xe4\xb8\xad\xe6\x96\x87'
 
->>> u1 = str1.decode('gb2312') # 以gb2312编码对字符串str进行解码，获得字符串类型对象
->>> print('u1')
+&gt;&gt;&gt; u1 = str1.decode('gb2312') # 以gb2312编码对字符串str进行解码，获得字符串类型对象
+&gt;&gt;&gt; print('u1')
 '中文'
 
->>> u2 = str1.decode('utf-8')  # 报错，因为str1是gb2312编码的
+&gt;&gt;&gt; u2 = str1.decode('utf-8')  # 报错，因为str1是gb2312编码的
 UnicodeDecodeError: 'utf-8' codec can't decode byte 0xd6 in position 0: invalid continuation byte
 --------------------- 
 可以看看这个
@@ -430,7 +442,7 @@ raise_for_status()方法
 理解Response类非常重要，Response这样的一个对象返回了所有的网页内容，那么它也提供了一个方法，叫raise_for_status()，这个方法是专门与异常打交道的方法，该方法有这样一个有趣的功能，它能够判断返回的Response类型状态是不是200。如果是200，他将表示返回的内容是正确的，如果不是200，他就会产生一个HttpError的异常。
 那这个方法有什么用呢？
 那我们来看一下我们的通用代码框架：
->>> def getHTMLText(url):
+&gt;&gt;&gt; def getHTMLText(url):
     try:
         r = requests.get(url, timeout = 30)
         r.raise_for_status()
@@ -464,11 +476,11 @@ if __name__ == "__main__":
 
 ```
 - - -
-<font face='宋体' > <span id='4' color='#456526'><center>requests</center></span></font>
+<font face="宋体"> <span id="4" color="#456526"><center>requests</center></span></font>
 - - -
 来看第一种requests库以及它怎样爬取一些基本的网页
->>> requests.request()构造一个请求
->>>requests.get()获取网页主要内容
+&gt;&gt;&gt; requests.request()构造一个请求
+&gt;&gt;&gt;requests.get()获取网页主要内容
 requests.head()获取网页头部信息
 还有post(),put(),delete()等
 requests爬取的通用代码框架
@@ -488,11 +500,11 @@ except:
   requests.request(method,url,**kwargs)
   **kwargs:控制访问的参数，为可选项
   params：字典或字节系列，作为参数增加到url中
-  >>>kv = {'key1':'values1','key2':'values2'}
-  >>>r=requests.request('GET','http://python123.io/ws',params=kv)
+  &gt;&gt;&gt;kv = {'key1':'values1','key2':'values2'}
+  &gt;&gt;&gt;r=requests.request('GET','http://python123.io/ws',params=kv)
   print(r.url)
   结果为
-https://python123.io/ws?key1=values1&key2=values2
+https://python123.io/ws?key1=values1&amp;key2=values2
 如果要中文需要这样操作
 body='主体内容'
 body1=body.encode('utf8')
@@ -520,45 +532,45 @@ def get_html(url):
 ```
 你也许经常想为 URL 的查询字符串(query string)传递某种数据。如果你是手工构建 URL，那么数据会以键/值对的形式置于 URL 中，跟在一个问号的后面。例如， httpbin.org/get?key=val。 Requests 允许你使用 params 关键字参数，以一个字符串字典来提供这些参数。举例来说，如果你想传递 key1=value1 和 key2=value2 到 httpbin.org/get ，那么你可以使用如下代码：
 
->>> payload = {'key1': 'value1', 'key2': 'value2'}
->>> r = requests.get("http://httpbin.org/get", params=payload)
+&gt;&gt;&gt; payload = {'key1': 'value1', 'key2': 'value2'}
+&gt;&gt;&gt; r = requests.get("http://httpbin.org/get", params=payload)
 通过打印输出该 URL，你能看到 URL 已被正确编码：
 
->>> print(r.url)
-http://httpbin.org/get?key2=value2&key1=value1
+&gt;&gt;&gt; print(r.url)
+http://httpbin.org/get?key2=value2&amp;key1=value1
 注意字典里值为 None 的键都不会被添加到 URL 的查询字符串里。
 
 你还可以将一个列表作为值传入：
 
->>> payload = {'key1': 'value1', 'key2': ['value2', 'value3']}
->>> r = requests.get('http://httpbin.org/get', params=payload)
->>> print(r.url)
-http://httpbin.org/get?key1=value1&key2=value2&key2=value3
+&gt;&gt;&gt; payload = {'key1': 'value1', 'key2': ['value2', 'value3']}
+&gt;&gt;&gt; r = requests.get('http://httpbin.org/get', params=payload)
+&gt;&gt;&gt; print(r.url)
+http://httpbin.org/get?key1=value1&amp;key2=value2&amp;key2=value3
 - 
->>> Requests 会自动解码来自服务器的内容。大多数 unicode 字符集都能被无缝地解码。
+&gt;&gt;&gt; Requests 会自动解码来自服务器的内容。大多数 unicode 字符集都能被无缝地解码。
 当你访问 r.text 之时，Requests 会使用其推测的文本编码。你可以找出 Requests 使用了什么编码，并且能够使用r.encoding 属性来改变它：
 
->>> r.encoding
+&gt;&gt;&gt; r.encoding
 
 'utf-8'
->>> r.encoding = 'ISO-8859-1'
+&gt;&gt;&gt; r.encoding = 'ISO-8859-1'
 如果你改变了编码，每当你访问 r.text ，Request 都将会使用 r.encoding 的新值。你可能希望在使用特殊逻辑计算出文本的编码的情况下来修改编码。比如 HTTP 和 XML 自身可以指定编码。这样的话，你应该使用 r.content 来找到编码，然后设置 r.encoding 为相应的编码。这样就能使用正确的编码解析 r.text 了。
 
  - Requests 中也有一个内置的 JSON 解码器，助你处理 JSON 数据：
 
->>> import requests
+&gt;&gt;&gt; import requests
 
->>> r = requests.get('https://github.com/timeline.json')
->>> r.json()
+&gt;&gt;&gt; r = requests.get('https://github.com/timeline.json')
+&gt;&gt;&gt; r.json()
 [{u'repository': {u'open_issues': 0, u'url': 'https://github.com/...
 如果 JSON 解码失败， r.json() 就会抛出一个异常。例如，响应内容是 401 (Unauthorized)，尝试访问 r.json() 将会抛出 ValueError: No JSON object could be decoded 异常。
 
 需要注意的是，成功调用 r.json() 并**不**意味着响应的成功。有的服务器会在失败的响应中包含一个 JSON 对象（比如 HTTP 500 的错误细节）。这种 JSON 会被解码返回。要检查请求是否成功，请使用 r.raise_for_status() 或者检查 r.status_code 是否和你的期望相同。
->>> bad_r = requests.get('http://httpbin.org/status/404')
->>> bad_r.status_code
+&gt;&gt;&gt; bad_r = requests.get('http://httpbin.org/status/404')
+&gt;&gt;&gt; bad_r.status_code
 404
 如果发送了一个错误请求(一个 4XX 客户端错误，或者 5XX 服务器错误响应)，我们可以通过 Response.raise_for_status() 来抛出异常：
->>> r.raise_for_status()
+&gt;&gt;&gt; r.raise_for_status()
 None
 
 又如  一个网上的列子
@@ -718,16 +730,16 @@ img_url='https://i0.hdslb.com/bfs/live/5934676.jpg@.webp?03132026'
 response=requests.get(img_url)
 print(response)
 返回
-<Response [200]>
+&lt;Response [200]&gt;
 ```
 定制请求头
 如果你想为请求添加 HTTP 头部，只要简单地传递一个 dict 给 headers 参数就可以了。
 
 例如，在前一个示例中我们没有指定 content-type:
 
->>> url = 'https://api.github.com/some/endpoint'
->>> headers = {'user-agent': 'my-app/0.0.1'}
->>> r = requests.get(url, headers=headers)
+&gt;&gt;&gt; url = 'https://api.github.com/some/endpoint'
+&gt;&gt;&gt; headers = {'user-agent': 'my-app/0.0.1'}
+&gt;&gt;&gt; r = requests.get(url, headers=headers)
 注意: 定制 header 的优先级低于某些特定的信息源，例如：
 
 如果在 .netrc 中设置了用户认证信息，使用 headers= 设置的授权就不会生效。而如果设置了auth= 参数，``.netrc`` 的设置就无效了。
@@ -754,7 +766,7 @@ print(r.text)
 ：意外错误等
 这就是网站不让我们爬虫浏览，所以就会有头部的修改
 修改添加如下
->>>kv={'uesr-agent':'Mozilla/5.0'}
+&gt;&gt;&gt;kv={'uesr-agent':'Mozilla/5.0'}
 url='https://gs.amazon.cn/ref=as_cn_gs_topnav_reg?ld=AZCNAGSTopnav'
 r=requests.get(url,headers=kv)
 r.status_code
@@ -773,7 +785,7 @@ except:
     print('爬取失败')
     结果为
     
-    <!doctype html><html class="a-no-js" data-19ax5a9jf="dingo">
+    &lt;!doctype html&gt;<html class="a-no-js" data-19ax5a9jf="dingo">
     <head>
 <script type="text/javascript">var ue_t0=ue_t0||+new Date();</script>
 。。。。。。。等
@@ -781,7 +793,7 @@ except:
 ```
 http协议请求
 我们在浏览器用百度为例子输入hello
-发现为https://www.baidu.com/s?wd=hello&rsv_spt=1&rsv_iqid=0xcbd3ca2000079cac&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=1&rsv_sug3=7&rsv_sug1=6&rsv_sug7=100
+发现为https://www.baidu.com/s?wd=hello&amp;rsv_spt=1&amp;rsv_iqid=0xcbd3ca2000079cac&amp;issp=1&amp;f=8&amp;rsv_bp=1&amp;rsv_idx=2&amp;ie=utf-8&amp;tn=baiduhome_pg&amp;rsv_enter=1&amp;rsv_sug3=7&amp;rsv_sug1=6&amp;rsv_sug7=100
 ```
 keyworld='hello'
  url='http://www.baidu.com/s?wd='+keyworld
@@ -851,7 +863,7 @@ try:
 except:
     print('爬取失败')
 ```
->>>下面将进行几个爬取例子
+&gt;&gt;&gt;下面将进行几个爬取例子
 1.爬取京东商品信息
 以下是我的代码
 import requests
@@ -872,7 +884,7 @@ except:
 
 虽然结果都一样，但是这样通过 r.raise_for_status()排除了异常，如果返回的代码是200是不会有用的，否则就会产生异常，再通过try except这样程序健壮性增强许多，而且通过r.encoding=r.apparent_encoding使得返回的代码我们能看得懂，就算错误也会得到意外错误的代码返回
 
->>>下面来看爬取例子二
+&gt;&gt;&gt;下面来看爬取例子二
 import requests
 url= 'http://www.amazon.cn/gp/product/B01M8L5Z3Y'
 try:
@@ -888,10 +900,10 @@ except:
 更加复杂的 POST 请求
 通常，你想要发送一些编码为表单形式的数据——非常像一个 HTML 表单。要实现这个，只需简单地传递一个字典给 data 参数。你的数据字典在发出请求时会自动编码为表单形式：
 
->>> payload = {'key1': 'value1', 'key2': 'value2'}
+&gt;&gt;&gt; payload = {'key1': 'value1', 'key2': 'value2'}
 
->>> r = requests.post("http://httpbin.org/post", data=payload)
->>> print(r.text)
+&gt;&gt;&gt; r = requests.post("http://httpbin.org/post", data=payload)
+&gt;&gt;&gt; print(r.text)
 {
   ...
   "form": {
@@ -902,9 +914,9 @@ except:
 }
 你还可以为 data 参数传入一个元组列表。在表单中多个元素使用同一 key 的时候，这种方式尤其有效：
 
->>> payload = (('key1', 'value1'), ('key1', 'value2'))
->>> r = requests.post('http://httpbin.org/post', data=payload)
->>> print(r.text)
+&gt;&gt;&gt; payload = (('key1', 'value1'), ('key1', 'value2'))
+&gt;&gt;&gt; r = requests.post('http://httpbin.org/post', data=payload)
+&gt;&gt;&gt; print(r.text)
 {
   ...
   "form": {
@@ -919,24 +931,24 @@ except:
 
 例如，Github API v3 接受编码为 JSON 的 POST/PATCH 数据：
 
->>> import json
+&gt;&gt;&gt; import json
 
->>> url = 'https://api.github.com/some/endpoint'
->>> payload = {'some': 'data'}
->>> r = requests.post(url, data=json.dumps(payload))
+&gt;&gt;&gt; url = 'https://api.github.com/some/endpoint'
+&gt;&gt;&gt; payload = {'some': 'data'}
+&gt;&gt;&gt; r = requests.post(url, data=json.dumps(payload))
 此处除了可以自行对 dict 进行编码，你还可以使用 json 参数直接传递，然后它就会被自动编码。这是 2.4.2 版的新加功能：
 
->>> url = 'https://api.github.com/some/endpoint'
->>> payload = {'some': 'data'}
->>> r = requests.post(url, json=payload)
+&gt;&gt;&gt; url = 'https://api.github.com/some/endpoint'
+&gt;&gt;&gt; payload = {'some': 'data'}
+&gt;&gt;&gt; r = requests.post(url, json=payload)
 POST一个多部分编码(Multipart-Encoded)的文件
 Requests 使得上传多部分编码文件变得很简单：
 
->>> url = 'http://httpbin.org/post'
->>> files = {'file': open('report.xls', 'rb')}
+&gt;&gt;&gt; url = 'http://httpbin.org/post'
+&gt;&gt;&gt; files = {'file': open('report.xls', 'rb')}
 
->>> r = requests.post(url, files=files)
->>> r.text
+&gt;&gt;&gt; r = requests.post(url, files=files)
+&gt;&gt;&gt; r.text
 {
   ...
   "files": {
@@ -946,11 +958,11 @@ Requests 使得上传多部分编码文件变得很简单：
 }
 你可以显式地设置文件名，文件类型和请求头：
 
->>> url = 'http://httpbin.org/post'
->>> files = {'file': ('report.xls', open('report.xls', 'rb'), 'application/vnd.ms-excel', {'Expires': '0'})}
+&gt;&gt;&gt; url = 'http://httpbin.org/post'
+&gt;&gt;&gt; files = {'file': ('report.xls', open('report.xls', 'rb'), 'application/vnd.ms-excel', {'Expires': '0'})}
 
->>> r = requests.post(url, files=files)
->>> r.text
+&gt;&gt;&gt; r = requests.post(url, files=files)
+&gt;&gt;&gt; r.text
 {
   ...
   "files": {
@@ -960,11 +972,11 @@ Requests 使得上传多部分编码文件变得很简单：
 }
 如果你想，你也可以发送作为文件来接收的字符串：
 
->>> url = 'http://httpbin.org/post'
->>> files = {'file': ('report.csv', 'some,data,to,send\nanother,row,to,send\n')}
+&gt;&gt;&gt; url = 'http://httpbin.org/post'
+&gt;&gt;&gt; files = {'file': ('report.csv', 'some,data,to,send\nanother,row,to,send\n')}
 
->>> r = requests.post(url, files=files)
->>> r.text
+&gt;&gt;&gt; r = requests.post(url, files=files)
+&gt;&gt;&gt; r.text
 {
   ...
   "files": {
@@ -982,21 +994,21 @@ Requests 使得上传多部分编码文件变得很简单：
 响应状态码
 我们可以检测响应状态码：
 
->>> r = requests.get('http://httpbin.org/get')
->>> r.status_code
+&gt;&gt;&gt; r = requests.get('http://httpbin.org/get')
+&gt;&gt;&gt; r.status_code
 200
 为方便引用，Requests还附带了一个内置的状态码查询对象：
 
->>> r.status_code == requests.codes.ok
+&gt;&gt;&gt; r.status_code == requests.codes.ok
 True
 如果发送了一个错误请求(一个 4XX 客户端错误，或者 5XX 服务器错误响应)，我们可以通过Response.raise_for_status() 来抛出异常：
 
->>> bad_r = requests.get('http://httpbin.org/status/404')
->>> bad_r.status_code
+&gt;&gt;&gt; bad_r = requests.get('http://httpbin.org/status/404')
+&gt;&gt;&gt; bad_r.status_code
 
 404
 
->>> bad_r.raise_for_status()
+&gt;&gt;&gt; bad_r.raise_for_status()
 
 Traceback (most recent call last):
   File "requests/models.py", line 832, in raise_for_status
@@ -1004,14 +1016,14 @@ Traceback (most recent call last):
 requests.exceptions.HTTPError: 404 Client Error
 但是，由于我们的例子中 r 的 status_code 是 200 ，当我们调用 raise_for_status() 时，得到的是：
 
->>> r.raise_for_status()
+&gt;&gt;&gt; r.raise_for_status()
 None
 一切都挺和谐哈。
 
 响应头
 我们可以查看以一个 Python 字典形式展示的服务器响应头：
 
->>> r.headers
+&gt;&gt;&gt; r.headers
 {
     'content-encoding': 'gzip',
     'transfer-encoding': 'chunked',
@@ -1025,10 +1037,10 @@ None
 
 因此，我们可以使用任意大写形式来访问这些响应头字段：
 
->>> r.headers['Content-Type']
+&gt;&gt;&gt; r.headers['Content-Type']
 'application/json'
 
->>> r.headers.get('content-type')
+&gt;&gt;&gt; r.headers.get('content-type')
 'application/json'
 它还有一个特殊点，那就是服务器可以多次接受同一 header，每次都使用不同的值。但 Requests 会将它们合并，这样它们就可以用一个映射来表示出来，参见 RFC 7230:
 
@@ -1039,27 +1051,27 @@ A recipient MAY combine multiple header fields with the same field name into one
 Cookie
 如果某个响应中包含一些 cookie，你可以快速访问它们：
 
->>> url = 'http://example.com/some/cookie/setting/url'
->>> r = requests.get(url)
+&gt;&gt;&gt; url = 'http://example.com/some/cookie/setting/url'
+&gt;&gt;&gt; r = requests.get(url)
 
->>> r.cookies['example_cookie_name']
+&gt;&gt;&gt; r.cookies['example_cookie_name']
 'example_cookie_value'
 要想发送你的cookies到服务器，可以使用 cookies 参数：
 
->>> url = 'http://httpbin.org/cookies'
->>> cookies = dict(cookies_are='working')
+&gt;&gt;&gt; url = 'http://httpbin.org/cookies'
+&gt;&gt;&gt; cookies = dict(cookies_are='working')
 
->>> r = requests.get(url, cookies=cookies)
->>> r.text
+&gt;&gt;&gt; r = requests.get(url, cookies=cookies)
+&gt;&gt;&gt; r.text
 '{"cookies": {"cookies_are": "working"}}'
 Cookie 的返回对象为 RequestsCookieJar，它的行为和字典类似，但界面更为完整，适合跨域名跨路径使用。你还可以把 Cookie Jar 传到 Requests 中：
 
->>> jar = requests.cookies.RequestsCookieJar()
->>> jar.set('tasty_cookie', 'yum', domain='httpbin.org', path='/cookies')
->>> jar.set('gross_cookie', 'blech', domain='httpbin.org', path='/elsewhere')
->>> url = 'http://httpbin.org/cookies'
->>> r = requests.get(url, cookies=jar)
->>> r.text
+&gt;&gt;&gt; jar = requests.cookies.RequestsCookieJar()
+&gt;&gt;&gt; jar.set('tasty_cookie', 'yum', domain='httpbin.org', path='/cookies')
+&gt;&gt;&gt; jar.set('gross_cookie', 'blech', domain='httpbin.org', path='/elsewhere')
+&gt;&gt;&gt; url = 'http://httpbin.org/cookies'
+&gt;&gt;&gt; r = requests.get(url, cookies=jar)
+&gt;&gt;&gt; r.text
 '{"cookies": {"tasty_cookie": "yum"}}'
 重定向与请求历史
 默认情况下，除了 HEAD, Requests 会自动处理所有重定向。
@@ -1070,34 +1082,34 @@ Response.history 是一个 Response 对象的列表，为了完成请求而创�
 
 例如，Github 将所有的 HTTP 请求重定向到 HTTPS：
 
->>> r = requests.get('http://github.com')
+&gt;&gt;&gt; r = requests.get('http://github.com')
 
->>> r.url
+&gt;&gt;&gt; r.url
 'https://github.com/'
 
->>> r.status_code
+&gt;&gt;&gt; r.status_code
 200
 
->>> r.history
-[<Response [301]>]
+&gt;&gt;&gt; r.history
+[&lt;Response [301]&gt;]
 如果你使用的是GET、OPTIONS、POST、PUT、PATCH 或者 DELETE，那么你可以通过 allow_redirects 参数禁用重定向处理：
 
->>> r = requests.get('http://github.com', allow_redirects=False)
->>> r.status_code
+&gt;&gt;&gt; r = requests.get('http://github.com', allow_redirects=False)
+&gt;&gt;&gt; r.status_code
 301
->>> r.history
+&gt;&gt;&gt; r.history
 []
 如果你使用了 HEAD，你也可以启用重定向：
 
->>> r = requests.head('http://github.com', allow_redirects=True)
->>> r.url
+&gt;&gt;&gt; r = requests.head('http://github.com', allow_redirects=True)
+&gt;&gt;&gt; r.url
 'https://github.com/'
->>> r.history
-[<Response [301]>]
+&gt;&gt;&gt; r.history
+[&lt;Response [301]&gt;]
 超时
 你可以告诉 requests 在经过以 timeout 参数设定的秒数时间之后停止等待响应。基本上所有的生产代码都应该使用这一参数。如果不使用，你的程序可能会永远失去响应：
 
->>> requests.get('http://github.com', timeout=0.001)
+&gt;&gt;&gt; requests.get('http://github.com', timeout=0.001)
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 requests.exceptions.Timeout: HTTPConnectionPool(host='github.com', port=80): Request timed out. (timeout=0.001)
@@ -1121,7 +1133,7 @@ timeout 仅对连接过程有效，与响应体的下载无关。 timeout 并不
 
 
 - - - 
-<font face='宋体' > <span id='5' color='#456526'><center>正则和BeautifulSoup的解析</center></span></font>
+<font face="宋体"> <span id="5" color="#456526"><center>正则和BeautifulSoup的解析</center></span></font>
 -
                 正则表达式
 两个特殊的符号'^'和'$'。他们的作用是分别指出一个字符串的开始和结束。例子如下：
@@ -1178,16 +1190,16 @@ timeout 仅对连接过程有效，与响应体的下载无关。 timeout 并不
 2.正则表达式验证控制文本框的输入字符类型
 ```
 1.只能输入数字和英文的： 
-<input onkeyup="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" ID="Text1" NAME="Text1">
+<input onkeyup="value=value.replace(/[\W]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" id="Text1" name="Text1" />
 
 2.只能输入数字的： 
-<input onkeyup="value=value.replace(/[^\d]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" ID="Text2" NAME="Text2">
+<input onkeyup="value=value.replace(/[^\d]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" id="Text2" name="Text2" />
 
 3.只能输入全角的： 
-<input onkeyup="value=value.replace(/[^\uFF00-\uFFFF]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\uFF00-\uFFFF]/g,''))" ID="Text3" NAME="Text3">
+<input onkeyup="value=value.replace(/[^\uFF00-\uFFFF]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\uFF00-\uFFFF]/g,''))" id="Text3" name="Text3" />
 
 4.只能输入汉字的： 
-<input onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5]/g,''))" ID="Text4" NAME="Text4">
+<input onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5]/g,''))" id="Text4" name="Text4" />
 ```
 
 3.正则表达式的应用实例通俗说明
@@ -1278,7 +1290,7 @@ $ 表示打头的字符要匹配紧靠$前面的规则
 再来一个检验以.com .cn结尾url
 import re
 pattern='[a-zA-Z]+://[^\s]*[.com|.cn]'
-string="<a href='http://www.baidu.com'>百度首页</a>"
+string="<a href="http://www.baidu.com">百度首页</a>"
 result=re.search(pattern,string)
 print(result)
 \s为空白字符
@@ -1298,8 +1310,8 @@ print(result1)
 print(result2)
 结果为
 D:\Python_code\env_pacong\Scripts\python.exe D:/Python_code/pachong/pachong1.py
-<re.Match object; span=(5, 21), match='php124pythony_py'>
-<re.Match object; span=(5, 13), match='php124py'>
+&lt;re.Match object; span=(5, 21), match='php124pythony_py'&gt;
+&lt;re.Match object; span=(5, 13), match='php124py'&gt;
 ```
 ```
 import re
@@ -1322,7 +1334,7 @@ def crawl(url,page):
     req=urllib.request.Request(url=url,headers=headers)
     html=urllib.request.urlopen(req).read()
     html1=html.decode() #格式变得标准化。解码
-    part1 = r'<div id="J_goodsList" .+?<div class="m-aside">'
+    part1 = r'&lt;div id="J_goodsList" .+?<div class="m-aside">'
     result1 = re.compile(part1,flags=re.DOTALL).findall(html1)
     result1=result1[0] #使数据变得工整而且格式化了 么以偶了/n等重复
     part2=r'<img width="220" height="220" class="err-product" data-img="1" source-data-lazy-img="//(.+?\.jpg)" />'
@@ -1341,7 +1353,7 @@ def crawl(url,page):
         x+=1
 
 for i in range(1,5):
-    url='https://search.jd.com/Search?keyword=iphonex&enc=utf-8&qrst=1&rt=1&stop=1&vt=2&suggest=1.his.0.0&page='+str(i)
+    url='https://search.jd.com/Search?keyword=iphonex&amp;enc=utf-8&amp;qrst=1&amp;rt=1&amp;stop=1&amp;vt=2&amp;suggest=1.his.0.0&amp;page='+str(i)
     crawl(url,i)
     print('第i爬取成功')
 
@@ -1350,7 +1362,7 @@ for i in range(1,5):
 1正则表达式出现了问题
 我在京东商品的页面源代码用ctrl+f也找了
 下面的标志只有一个也就是只有一次出现正好满足条件
-part1 = r'<div id="J_goodsList" .+?<div class="m-aside">'
+part1 = r'&lt;div id="J_goodsList" .+?<div class="m-aside">'
 result1 = re.compile(part1).findall(html1)
 一开始我是这样写的，但是一直返回我一个[]然后百度很久终于知道为什么
 这个问题一般出现在希望使用句点(.)来匹配任意字符，但是忘记了句点并不能匹配换行符时:
@@ -1434,7 +1446,7 @@ def getcontent(url,i):
      req=urllib.request.Request(url=url,headers=headers)
      html=urllib.request.urlopen(req).read().decode()
      print('================================')
-     part1='<div class="content">(.*?)</span>'
+     part1='<div class="content">(.*?)&lt;/span&gt;'
      content=re.compile(part1,flags=re.DOTALL).findall(html)
      print(content)
 
@@ -1749,7 +1761,7 @@ class tieba(object):
         datas=self.send_request(self.url,tieba_params)
         #re
         html=datas.decode()
-        url_list=re.compile('<a rel="noreferrer" href="(.+)" title.*?</a>').findall(html)
+        url_list=re.compile('&lt;a rel="noreferrer" href="(.+)" title.*?&lt;/a&gt;').findall(html)
         # xpath
         # detail_rule="//div[@class='t_con cleafix']/div/div/div/a/@href"
         # url_list=self.parse_data(datas,detail_rule)
@@ -1772,8 +1784,7 @@ if __name__ == '__main__':
 
 
 ```
-<font face='宋体' > <span id='6' 
-color='#456526'><center><b>selenium</b></center></span></font>
+<font face="宋体"> <span id="6" color="#456526"><center><b>selenium</b></center></span></font>
 - - -
 Selenium 是为了测试而出生的. 但是没想到到了爬虫的年代, 它摇身一变, 变成了爬虫的好工具. 让我试着用一句话来概括 Seleninm: 它能控制你的浏览器, 有模有样地学人类”看”网页.
 那么你什么时候会要用到 Selenium 呢? 当你:
@@ -1808,7 +1819,7 @@ input_second=browser.find_element_by_css_selector('#q')
 print(input_frist,input_second)
 browser.close()
 结果为
-<selenium.webdriver.remote.webelement.WebElement (session="fa3593cb1ecbf4e6e7b70570b9b23b27", element="0.7509356911593199-1")> <selenium.webdriver.remote.webelement.WebElement (session="fa3593cb1ecbf4e6e7b70570b9b23b27", element="0.7509356911593199-1")>
+&lt;selenium.webdriver.remote.webelement.WebElement (session="fa3593cb1ecbf4e6e7b70570b9b23b27", element="0.7509356911593199-1")&gt; &lt;selenium.webdriver.remote.webelement.WebElement (session="fa3593cb1ecbf4e6e7b70570b9b23b27", element="0.7509356911593199-1")&gt;
 ```
 ```
 多个元素
@@ -1820,7 +1831,7 @@ print(lis)
 browser.close()
 里面的.service-bd li'是淘宝导航条的一个区域的名字
 结果为
-[<selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-1")>, <selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-2")>, <selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-3")>, <selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-4")>, <selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-5")>, <selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-6")>, <selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-7")>, <selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-8")>, <selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-9")>, <selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-10")>, <selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-11")>, <selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-12")>, <selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-13")>, <selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-14")>, <selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-15")>, <selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-16")>]
+[&lt;selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-1")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-2")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-3")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-4")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-5")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-6")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-7")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-8")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-9")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-10")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-11")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-12")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-13")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-14")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-15")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (session="38dc04f1721619c75b9957d0bcab5366", element="0.16647184484271205-16")&gt;]
 获取了导航条的一大推
 ```
 当然还可以加载时控制加载 比如不加载图片如
@@ -1883,7 +1894,7 @@ import time
 browser=webdriver.Chrome()
 browser.get('https://www.bing.com/')
 browser.get('https://www.taobao.com/')
-browser.get('https://s.taobao.com/search?q=iphone&imgfile=&commend=all&ssid=s5-e&search')
+browser.get('https://s.taobao.com/search?q=iphone&amp;imgfile=&amp;commend=all&amp;ssid=s5-e&amp;search')
 time.sleep(1)
 browser.back()
 browser.back()
@@ -1912,7 +1923,7 @@ browser.get('https://python.org')
 ```
 
 - - -
-<font face='宋体' > <span id='7' color='#456526'><center>COOKIE</center></span></font>
+<font face="宋体"> <span id="7" color="#456526"><center>COOKIE</center></span></font>
 1.Opener
 当你获取一个URL你使用一个opener。在前面，我们都是使用的默认的opener，也就是urlopen。它是一个特殊的opener，可以理解成opener的一个特殊实例，传入的参数仅仅是url，data，timeout。
 
@@ -1921,7 +1932,7 @@ browser.get('https://python.org')
 2.Cookiejar
 cookiejar模块的主要作用是提供可存储cookie的对象，以便于与urllib模块配合使用来访问Internet资源。Cookiejar模块非常强大，我们可以利用本模块的CookieJar类的对象来捕获cookie并在后续连接请求时重新发送，比如可以实现模拟登录功能。该模块主要的对象有CookieJar、FileCookieJar、MozillaCookieJar、LWPCookieJar。
 
-它们的关系：CookieJar —-派生—->FileCookieJar  —-派生—–>MozillaCookieJar和LWPCookieJar
+它们的关系：CookieJar —-派生—-&gt;FileCookieJar  —-派生—–&gt;MozillaCookieJar和LWPCookieJar
 下面来看看书中的代码】
 ```
 import urllib.request
@@ -2096,7 +2107,7 @@ def get_xsrf():
     """
     response = session.get('https://www.zhihu.com', headers=headers)
     html = response.text
-    get_xsrf_pattern = re.compile(r'<input type="hidden" name="_xsrf" value="(.*?)"')
+    get_xsrf_pattern = re.compile(r'&lt;input type="hidden" name="_xsrf" value="(.*?)"')
     _xsrf = re.findall(get_xsrf_pattern, html)[0]
     return _xsrf
  
@@ -2107,7 +2118,7 @@ def get_captcha():
     返回你输入的验证码
     """
     t = str(int(time.time() * 1000))
-    captcha_url = 'http://www.zhihu.com/captcha.gif?r=' + t + "&type=login"
+    captcha_url = 'http://www.zhihu.com/captcha.gif?r=' + t + "&amp;type=login"
     response = session.get(captcha_url, headers=headers)
     with open('cptcha.gif', 'wb') as f:
         f.write(response.content)
@@ -2179,7 +2190,7 @@ if __name__ == '__main__':
 
 ```
 - - - 
-<font face='宋体' > <span id='8' color='#456526'><center>mongoDB</center></span></font>
+<font face="宋体"> <span id="8" color="#456526"><center>mongoDB</center></span></font>
 在这之前，通过Django学习了mysql也对他有了一点了解，下面来看看爬虫经常用的数据库mongoDB
 首先是安装mongoDB，直接进入官网，然后下载相应版本的commiunity 社区版，然后一路install和next 切记，位置一定在根目录下，不然最后的时候如果出现错误然后就会有三个文件分别是bin data log，而且最好把mongo db的compass一起下载好，默认的的是http://localhost:27017下载完成后打开目录就有一个bin和log,data了，可以在bin里面cmd打开命令行输入mongo就进入了mongodb的数据库，如果没有进入则mongod --dbpath 位置 就OK了，在数据库里面输入db就可以看见有一个test就可以对它进行增删除之列的,就开启了mongodb 的学习之路
 
@@ -2197,7 +2208,7 @@ client=pymongo.MongoClient('127.0.0.1',27017)连接客户端
 db['biaodan_name'].insert(result)
 
 - - - 
-<font face='宋体' > <span id='9' color='#456526'><center>py转exe</center></span></font>
+<font face="宋体"> <span id="9" color="#456526"><center>py转exe</center></span></font>
 1.准备好需要转换的py文件和一张用于做图标的照片，将他们存放于同一个文件夹中，文件的路径全部为英文路径
 2.在网上将图标装换为.ico格式
 3.利用命令窗口安装pyinstaller插件 pip install 
@@ -2205,10 +2216,10 @@ db['biaodan_name'].insert(result)
 5.执行命令 pyinstaller -F -i 1.ico 2.py(即ico和py的名字)
 6.执行完命令后，需要的exe文件就在dist文件夹中
 - - -
-<font face='宋体' > <span id='9' color='#456526'><center>redis</center></span></font>
+<font face="宋体"> <span id="9" color="#456526"><center>redis</center></span></font>
 首先下载redis直接搜索redis安装，有一个菜鸟教程还可以，点击进入一个github，https://github.com/MSOpenTech/redis/releases。找到想要的发行版本，安装下载即可，然后在github搜索redis desktop安装可视化界面，强调下，我的都是在E盘的根目录。
 - - - 
-<font face='宋体' > <span id='10' color='#456526'><center>案列</center></span></font>
+<font face="宋体"> <span id="10" color="#456526"><center>案列</center></span></font>
 ```
 京东图片
 import urllib.request
@@ -2221,7 +2232,7 @@ def crawl(url,page):
     req=urllib.request.Request(url=url,headers=headers)
     html=urllib.request.urlopen(req).read()
     html1=html.decode() #格式变得标准化。解码
-    part1 = r'<div id="J_goodsList" .+?<div class="m-aside">'
+    part1 = r'&lt;div id="J_goodsList" .+?<div class="m-aside">'
     result1 = re.compile(part1,flags=re.DOTALL).findall(html1)
     result1=result1[0] #使数据变得工整而且格式化了 么以偶了/n等重复
     part2=r'<img width="220" height="220" class="err-product" data-img="1" source-data-lazy-img="//(.+?\.jpg)" />'
@@ -2240,7 +2251,7 @@ def crawl(url,page):
         x+=1
 
 for i in range(1,5):
-    url='https://search.jd.com/Search?keyword=iphonex&enc=utf-8&qrst=1&rt=1&stop=1&vt=2&suggest=1.his.0.0&page='+str(i)
+    url='https://search.jd.com/Search?keyword=iphonex&amp;enc=utf-8&amp;qrst=1&amp;rt=1&amp;stop=1&amp;vt=2&amp;suggest=1.his.0.0&amp;page='+str(i)
     crawl(url,i)
     print('第i爬取成功')
 今日头条
@@ -2387,8 +2398,8 @@ def get_one_page(url):
         return None
 
 def parse_one_page(html):
-    pattern = re.compile(r'<dd>.*?<i class="board-index board-index-.*?">(\d+)</i>.*?<a href="(.*?)".*?title="(.*?)".*?<img data-src="(.*?)".*?<p class="star">(.*?)</p>.*?<p class="releasetime">(.*?)</p>.*?<i class="integer">(\d+)',flags=re.DOTALL)
-    # 这样就不会出结果pattern = re.compile(r'<dd>.*?<i class="board-index board-index-.*?">(\d+)</i>.*?<a href="(.*?)".*?title="(.*?)".*?<img data-src="(.*?)".*?<p class="star">(.*?)</p>.*?<p class="releasetime">(.*?)</p>.*?<i class="integer">(\d+)</i>',flags=re.DOTALL)
+    pattern = re.compile(r'<dd>.*?<i class="board-index board-index-.*?">(\d+)</i>.*?&lt;a href="(.*?)".*?title="(.*?)".*?&lt;img data-src="(.*?)".*?<p class="star">(.*?)</p>.*?<p class="releasetime">(.*?)</p>.*?<i class="integer">(\d+)',flags=re.DOTALL)
+    # 这样就不会出结果pattern = re.compile(r'<dd>.*?<i class="board-index board-index-.*?">(\d+)</i>.*?&lt;a href="(.*?)".*?title="(.*?)".*?&lt;img data-src="(.*?)".*?<p class="star">(.*?)</p>.*?<p class="releasetime">(.*?)</p>.*?<i class="integer">(\d+)</i>',flags=re.DOTALL)
     items=re.findall(pattern,html)
     print(items)
 
@@ -2454,19 +2465,19 @@ def search():
     try:
         browser.get('https://www.taobao.com')
         # 以下代码也是复制过来,将driver改为browser等改动都在页面有
-        # 而(By.CSS_SELECTOR, "#q")这个则是直接在淘宝网页选择该元素，然后点击copy,copy selector就是他们了如搜索是#q，点击是#J_TSearchForm > div.search-button > button
+        # 而(By.CSS_SELECTOR, "#q")这个则是直接在淘宝网页选择该元素，然后点击copy,copy selector就是他们了如搜索是#q，点击是#J_TSearchForm &gt; div.search-button &gt; button
         # element = WebDriverWait(driver, 10).until(
         #     EC.presence_of_element_located((By.ID, "myDynamicElement"))
         input = WebDriverWait(browser, 10).until(
             EC.presence_of_element_located((By.CSS_SELECTOR, "#q"))
         )
         submit=WebDriverWait(browser, 10).until(
-            EC.element_to_be_clickable((By.CSS_SELECTOR,"#J_TSearchForm > div.search-button > button"))
+            EC.element_to_be_clickable((By.CSS_SELECTOR,"#J_TSearchForm &gt; div.search-button &gt; button"))
         )
         #下面就是模拟操作了,也在页面里面有如send_keys就在7.2中
         input.send_keys('美食')
         submit.click()
-        total=WebDriverWait(browser, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"#J_relative > div.sort-row > div > div.pager > ul > li:nth-child(2)")))
+        total=WebDriverWait(browser, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"#J_relative &gt; div.sort-row &gt; div &gt; div.pager &gt; ul &gt; li:nth-child(2)")))
         return total.text
     except TimeoutError:
         return search()
@@ -2523,7 +2534,7 @@ class tieba(object):
         datas=self.send_request(self.url,tieba_params)
         #re
         html=datas.decode()
-        url_list=re.compile('<a rel="noreferrer" href="(.+)" title.*?</a>').findall(html)
+        url_list=re.compile('&lt;a rel="noreferrer" href="(.+)" title.*?&lt;/a&gt;').findall(html)
         # xpath
         # detail_rule="//div[@class='t_con cleafix']/div/div/div/a/@href"
         # url_list=self.parse_data(datas,detail_rule)
@@ -2628,7 +2639,7 @@ import requests
 class Get_follow(object):
     def __init__(self,page):
         self.page=page
-        self.url='https://www.zhihu.com/api/v4/members/mwycegusa/followers?include=data%5B*%5D.answer_count%2Carticles_count%2Cgender%2Cfollower_count%2Cis_followed%2Cis_following%2Cbadge%5B%3F(type%3Dbest_answerer)%5D.topics&offset={}&limit=20'.format(page*20)
+        self.url='https://www.zhihu.com/api/v4/members/mwycegusa/followers?include=data%5B*%5D.answer_count%2Carticles_count%2Cgender%2Cfollower_count%2Cis_followed%2Cis_following%2Cbadge%5B%3F(type%3Dbest_answerer)%5D.topics&amp;offset={}&amp;limit=20'.format(page*20)
         self.headers={
             'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36'
         }
@@ -2679,3 +2690,5 @@ if __name__ == '__main__':
         msg_send=Send_MSG()
         msg_send.Send()
 ```
+</dd></i></dd></div></div></div></div></module></stdin></censored...binary...data></censored...binary...data></head></html></head></html>
+:ET

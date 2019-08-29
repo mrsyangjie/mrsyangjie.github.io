@@ -1,0 +1,228 @@
+I"�<!-- MarkdownTOC -->
+
+<ul>
+  <li><a href="#%E5%89%8D%E8%A8%80">前言</a>
+    <ul>
+      <li><a href="#tools">Tools</a></li>
+    </ul>
+  </li>
+  <li><a href="#markdown-syntax">Markdown: Syntax</a>
+    <ul>
+      <li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+      <li><a href="#%E6%A0%87%E9%A2%98">标题</a></li>
+      <li><a href="#%E5%88%97%E8%A1%A8">列表</a>
+        <ul>
+          <li><a href="#%E6%97%A0%E5%BA%8F">无序</a></li>
+          <li><a href="#%E6%9C%89%E5%BA%8F">有序</a></li>
+          <li><a href="#%E5%B5%8C%E5%A5%97%E5%88%97%E8%A1%A8">嵌套列表</a></li>
+        </ul>
+      </li>
+      <li><a href="#%E5%BC%95%E7%94%A8">引用</a></li>
+      <li><a href="#%E5%9B%BE%E7%89%87">图片</a></li>
+      <li><a href="#%E9%93%BE%E6%8E%A5">链接</a></li>
+      <li><a href="#%E7%B4%A2%E5%BC%95%E9%93%BE%E6%8E%A5">索引链接</a></li>
+      <li><a href="#%E6%9C%AC%E8%BA%AB%E5%B0%B1%E6%98%AF%E9%93%BE%E6%8E%A5">本身就是链接</a></li>
+      <li><a href="#%E5%88%86%E5%89%B2%E7%BA%BF">分割线</a></li>
+      <li><a href="#%E8%A1%A8%E6%A0%BC">表格</a></li>
+      <li><a href="#%E4%BB%A3%E7%A0%81%E5%9D%97">代码块</a></li>
+      <li><a href="#%E8%BD%AC%E4%B9%89">转义</a></li>
+      <li><a href="#others">Others</a>
+        <ul>
+          <li><a href="#%E7%B2%97%E4%BD%93">粗体</a></li>
+          <li><a href="#%E6%96%9C%E4%BD%93">斜体</a></li>
+          <li><a href="#%E5%AD%97%E4%BD%93-%E5%AD%97%E5%8F%B7-%E5%92%8C%E9%A2%9C%E8%89%B2">字体, 字号, 和颜色</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#reference">Reference</a></li>
+</ul>
+
+<!-- /MarkdownTOC -->
+
+<h1 id="前言">前言</h1>
+<p>阶段性总结有利于精确自己的目标, 以及为后续的想法开辟空间.</p>
+
+<p>因此开始有必要整理记录.</p>
+
+<p>但是因为没必要像写paper那样规范使用latex, 因此就选择了Markdown.</p>
+
+<h2 id="tools">Tools</h2>
+<p>Windows - <a href="http://www.markdownpad.com/">MarkdownPad</a></p>
+
+<p>Github Pages - (If you have one)</p>
+
+<h1 id="markdown-syntax">Markdown: Syntax</h1>
+<h2 id="目录">目录</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[TOC]
+</code></pre></div></div>
+
+<p>由于github不支持显示TOC, 因此需要先用<strong>markdown-toc</strong><a href="[markdown toc](https://github.com/houbb/markdown-toc)">4</a>进行预处理
+也可以使用sublime里的<strong>markdown-toc</strong><a href="[sublime with markdown-toc](https://www.cnblogs.com/Sinte-Beuve/p/5148108.html)">5</a>插件.</p>
+
+<h2 id="标题">标题</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># content
+## content
+### content
+......
+</code></pre></div></div>
+
+<p>一共可以设置六级标题</p>
+
+<h2 id="列表">列表</h2>
+<h3 id="无序">无序</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* 1
+* 2
+* 3 * 1 * 2 * 3
+</code></pre></div></div>
+
+<h3 id="有序">有序</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. 1
+2. 2
+3. 3 1. 1 2. 2 3. 3
+</code></pre></div></div>
+
+<h3 id="嵌套列表">嵌套列表</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- AAA
+  + A
+    - a
+      1. contentA
+      2. contentB
+</code></pre></div></div>
+
+<ul>
+  <li>AAA
+    <ul>
+      <li>A
+        <ul>
+          <li>a
+            <ol>
+              <li>contentA</li>
+              <li>contentB</li>
+            </ol>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="引用">引用</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; contentA
+  &gt;&gt; contentB
+</code></pre></div></div>
+
+<blockquote>
+  <p>contentA</p>
+  <blockquote>
+    <p>contentB</p>
+  </blockquote>
+</blockquote>
+
+<p>之后的文本内容需要插入空行</p>
+
+<h2 id="图片">图片</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>！[icon](link to the picture)
+</code></pre></div></div>
+
+<h2 id="链接">链接</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[content](link to the content)
+</code></pre></div></div>
+
+<h2 id="索引链接">索引链接</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[content][1]
+[1]:Url [content][1] [1]:Url
+</code></pre></div></div>
+
+<h2 id="本身就是链接">本身就是链接</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;url&gt;
+</code></pre></div></div>
+<p><a href="https://xinyao1994.github.io/">https://xinyao1994.github.io/</a></p>
+
+<h2 id="分割线">分割线</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>***
+---
+</code></pre></div></div>
+
+<h2 id="表格">表格</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tables</th>
+      <th style="text-align: center">Are</th>
+      <th style="text-align: right">Cool</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>col 3 is</td>
+      <td style="text-align: center">right-aligned</td>
+      <td style="text-align: right">$1600</td>
+    </tr>
+    <tr>
+      <td>col 2 is</td>
+      <td style="text-align: center">centered</td>
+      <td style="text-align: right">$12</td>
+    </tr>
+    <tr>
+      <td>zebra stripes</td>
+      <td style="text-align: center">are neat</td>
+      <td style="text-align: right">$1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="代码块">代码块</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>``` [python]
+@requires_authorization
+def add(a, b): # add a and b
+    return a+b
+class TA:
+```
+</code></pre></div></div>
+
+<pre><code class="language-[python]">@requires_authorization
+def add(a, b): # add a and b
+	return a+b
+class TA:
+</code></pre>
+
+<p>or 每行文字前加4个空格或者1个Tab</p>
+
+<h2 id="转义">转义</h2>
+
+<h2 id="others">Others</h2>
+<h3 id="粗体">粗体</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>**content** **content**
+
+__content__ __content__
+</code></pre></div></div>
+
+<h3 id="斜体">斜体</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>*content* *content*
+
+_content_ _content_
+</code></pre></div></div>
+
+<h3 id="字体-字号-和颜色">字体, 字号, 和颜色</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;font face="黑体"&gt;我是黑体字&lt;/font&gt;
+&lt;font face="微软雅黑"&gt;我是微软雅黑&lt;/font&gt;
+&lt;font face="Verdana"&gt;I like Verdana format&lt;/font&gt;
+</code></pre></div></div>
+
+<font face="黑体">我是黑体字</font>
+
+<font face="微软雅黑">我是微软雅黑</font>
+
+<font face="Verdana">I like Verdana format</font>
+
+<h1 id="reference">Reference</h1>
+
+:ET
